@@ -30,7 +30,8 @@ public class FormPage {
             addressField = $("#currentAddress"),
             stateField = $("#state"),
             cityField = $("#city"),
-            submitButton = $("#submit");
+            submitButton = $("#submit"),
+            closeModalButton = $("#closeLargeModal");
     private static final String
             classOfDay = ".react-datepicker__day--0%s:not(.react-datepicker__day--outside-month)",
             dataTable = ".table-responsive tbody tr",
@@ -66,6 +67,13 @@ public class FormPage {
         cityField.scrollTo().click();
         cityField.find(byText(userData.get("City"))).scrollTo().click();
         submitButton.scrollTo().click();
+
+        return this;
+    }
+
+    @Step("Close modal window")
+    public FormPage closeModal() {
+        closeModalButton.scrollIntoView(true).click();
 
         return this;
     }
