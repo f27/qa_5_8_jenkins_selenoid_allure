@@ -14,9 +14,7 @@ public class TestBase {
     @BeforeAll
     static void setup() {
         addListener("AllureSelenide", new AllureSelenide());
-        if (System.getProperty("browser") != null) {
-            Configuration.browser = System.getProperty("browser");
-        }
+        Configuration.browser = System.getProperty("browser", "chrome");
         if (System.getProperty("remote_driver") != null) {
             DesiredCapabilities capabilities = new DesiredCapabilities();
             capabilities.setCapability("enableVNC", true);
