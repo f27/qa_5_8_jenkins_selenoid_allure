@@ -30,7 +30,8 @@ public class TestBase {
     void afterEach() {
         attachScreenshot("Last screenshot");
         attachPageSource();
-        attachAsText("Browser console logs", getConsoleLogs());
+        if (Configuration.browser.equals("chrome"))
+            attachAsText("Browser console logs", getConsoleLogs());
         if (System.getProperty("video_storage") != null)
             attachVideo();
         closeWebDriver();
